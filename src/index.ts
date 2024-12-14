@@ -79,10 +79,10 @@ export default {
 
 		// Error with:
 		// TypeError: This ReadableStream is disturbed (has already been read from), and cannot be used as a body.
-		//const req = new Request('http://example.com', { method: 'POST', body: Readable.toWeb(ic) });
+		const req = new Request('http://example.com', { method: 'POST', body: Readable.toWeb(ic) });
 
 		// Works
-		const req = new Request('http://example.com', { method: 'POST', body: ReadableStream.from(ic) });
+		//const req = new Request('http://example.com', { method: 'POST', body: ReadableStream.from(ic) });
 
 		for await (const chunk of req.body) {
 			console.log(new TextDecoder().decode(chunk));
